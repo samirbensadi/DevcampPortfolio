@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+
 	def index
 		@portfolio_items = Portfolio.all
 	end
@@ -32,6 +33,14 @@ class PortfoliosController < ApplicationController
 			else
 				format.html { render :edit }
 			end
+		end
+	end
+
+	def destroy
+		@portfolio_item = Portfolio.find(params[:id])
+		respond_to do |format|
+			@portfolio_item.destroy
+			format.html {redirect_to portfolios_path, notice: 'successfully removed'}
 		end
 	end
 
