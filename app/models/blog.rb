@@ -5,4 +5,6 @@ class Blog < ApplicationRecord
 
 
 	validates_presence_of :title, :body    #validation if exist title and a body, if not, it cannot add a blog
+
+	belongs_to :topic
 end
